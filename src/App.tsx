@@ -1,9 +1,9 @@
-import AiImageGenerator from "./Components/AiImageGenerator";
+import Meal from "./Components/Meal";
 
 function App() {
   return (
     <>
-      <AiImageGenerator />
+      <Meal />
     </>
   );
 }
