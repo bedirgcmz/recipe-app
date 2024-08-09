@@ -10,6 +10,7 @@ import {
   Grid,
   Modal,
   IconButton,
+  CardMedia, // Import CardMedia
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 
@@ -18,16 +19,7 @@ interface MealData {
   strArea: string;
   strInstructions: string;
   strMealThumb: string;
-  strIngredient1: string;
-  strIngredient2: string;
-  strIngredient3: string;
-  strIngredient4: string;
-  strIngredient5: string;
-  strIngredient6: string;
-  strIngredient7: string;
-  strIngredient8: string;
-  strIngredient9: string;
-  strIngredient10: string;
+  [key: string]: string | undefined;
 }
 
 const Meal: React.FC = () => {
@@ -76,7 +68,7 @@ const Meal: React.FC = () => {
   return (
     <Box sx={{ textAlign: "center", mt: 4, px: 2 }}>
       <Typography variant="h4" gutterBottom>
-        Find Your Best Dishes
+        Find Your Best Meal
       </Typography>
       <Box
         sx={{
@@ -130,7 +122,16 @@ const Meal: React.FC = () => {
       {mealData && (
         <Card sx={{ maxWidth: "600px", mt: 4, mx: "auto" }}>
           <CardContent>
-            <Typography variant="h5">{mealData.strMeal}</Typography>
+            <CardMedia
+              component="img"
+              height="300"
+              image={mealData.strMealThumb}
+              alt={mealData.strMeal}
+              sx={{ borderRadius: "8px" }}
+            />
+            <Typography sx={{ mt: 1 }} variant="h5">
+              {mealData.strMeal}
+            </Typography>
             <Typography variant="subtitle1" color="textSecondary">
               {mealData.strArea}
             </Typography>
